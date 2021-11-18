@@ -45,6 +45,8 @@ object JWTUtil {
             .build()
             .verify(token)
 
+    fun extractEmail(jwt : DecodedJWT):String =
+        jwt.getClaim(JWTClaims.EMAIL).asString()
 
     object JWTClaims{
         const val EMAIL = "email"
