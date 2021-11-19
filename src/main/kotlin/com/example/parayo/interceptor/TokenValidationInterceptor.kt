@@ -48,7 +48,7 @@ class TokenValidationInterceptor @Autowired constructor(
 
 
     private fun handleToken(
-        grantType : String,
+        grantType : String?,
         token : String,
         response: HttpServletResponse
     ) = try {
