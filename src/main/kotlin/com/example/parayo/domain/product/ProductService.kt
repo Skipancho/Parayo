@@ -2,6 +2,7 @@ package com.example.parayo.domain.product
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.PageRequest
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 @Service
@@ -33,6 +34,8 @@ class ProductService @Autowired constructor(
 
         }
     }
+
+    fun get(id : Long) = productRepository.findByIdOrNull(id)
 
     data class ProductSearchCondition(
         val categoryIdIsNotNull : Boolean,
