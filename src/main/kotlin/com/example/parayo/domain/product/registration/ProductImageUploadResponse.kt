@@ -1,6 +1,6 @@
 package com.example.parayo.domain.product.registration
 
 data class ProductImageUploadResponse(
-    val productImage: Long,
+    val productImageId: Long,
     val filePath : String
 )
