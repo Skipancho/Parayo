@@ -14,4 +14,14 @@ interface ProductRepository : JpaRepository<Product, Long> {
     fun findByCategoryIdAndIdLessThanOrderByIdDesc(
         categoryId : Int?, id:Long, pageable: Pageable
     ): List<Product>
+
+    //id 및 이름, id 값이 큰 순으로 내림차순
+    fun findByIdGreaterThanAndNameLikeOrderByIdDesc(
+        id : Long, keyword : String, pageable: Pageable
+    ): List<Product>
+
+    //id 및 이름, id 값이 작은 순으로 내림차순
+    fun findByIdLessThanAndNameLikeOrderByIdDesc(
+        id : Long, keyword : String, pageable: Pageable
+    ): List<Product>
 }
