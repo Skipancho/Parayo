@@ -8,6 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import sun.security.util.Password
 
+/**
+ * @Service 애노테이션은 이 클래스가 스프링이 관리하는 빈(Bean) 클래스임을
+ * 나타내며 그 중에서도 비즈니스 로직을 처리하는 클래스라는 것을 표시한다.
+ *
+ * @Autowired 애노테이션은 빈(Bean) 클래스를 자동으로 주입받겠다는 의미
+ * @Service와 같이 스프링의 빈으로 선언된 클래스의 생성자, setter, 프로퍼티 등에
+ * @Autowired 애노테이션을 붙이면 스프링이 해당하는 빈을 알아서 주입해준다.
+ */
 @Service
 class SignupService @Autowired constructor(
     private val userRepository: UserRepository
