@@ -59,6 +59,14 @@ class SignupService @Autowired constructor(
             throw ParayoException("이미 사용 중인 이메일입니다.")
         }
 
+    /**
+     * BCrypt.hashpw()는 문자열을 해싱해주는 기능을 한다.
+     * 원본 문자열을 찾아내기 힘들도록 임의의 salt(소금?) 값을 붙여 함께 해싱하는데
+     * 이 salt 값은 BCrypt.gensalt()를 통해 생성할 수 있다.
+     *
+     * JpaRepository에는 데이터를 저장하는  save()함수가 있다.
+     * 여기에 해당하는 객체를 전달하면 데이터베이스에 사용자 정보가 저장된다.
+     */
     private fun registerUser(signupRequest: SignupRequest)=
         with(signupRequest){
             val hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt())
