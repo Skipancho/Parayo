@@ -13,4 +13,6 @@ class UserService @Autowired constructor(
             this.fcmToken = fcmToken
             userRepository.save(this)
         } ?: throw IllegalStateException("사용자 정보 없음")
+
+    fun find(userId: Long) = userRepository.findByIdOrNull(userId)
 }
