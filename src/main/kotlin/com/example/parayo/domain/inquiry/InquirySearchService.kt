@@ -37,30 +37,36 @@ class InquirySearchService @Autowired constructor(
                     PageRequest.of(0,10)
                 )
 
-            NEXT_FOR_USER -> inquiryRepository
+            NEXT_FOR_USER -> {
+                println("NEXT_FOR_USER")
+                inquiryRepository
                 .findByRequestUserIdAndIdLessThanOrderByIdDesc(
-                    productId,
+                    requestUserId,
                     inquiryId,
                     PageRequest.of(0,10)
                 )
+            }
 
             PREV_FOR_USER -> inquiryRepository
                 .findByRequestUserIdAndIdGreaterThanOrderByIdDesc(
-                    productId,
+                    requestUserId,
                     inquiryId,
                     PageRequest.of(0,10)
                 )
 
-            NEXT_FOR_USER_PRODUCT -> inquiryRepository
+            NEXT_FOR_USER_PRODUCT -> {
+                println("NEXT_FOR_USER_PRODUCT")
+                inquiryRepository
                 .findByProductOwnerIdAndIdLessThanOrderByIdDesc(
-                    productId,
+                    productOwnerId,
                     inquiryId,
                     PageRequest.of(0,10)
                 )
+            }
 
             PREV_FOR_USER_PRODUCT -> inquiryRepository
                 .findByProductOwnerIdAndIdGreaterThanOrderByIdDesc(
-                    productId,
+                    productOwnerId,
                     inquiryId,
                     PageRequest.of(0,10)
                 )
